@@ -3,8 +3,25 @@ p Find me in app/views/maizuoapis/index.html.slim
 
 table border="1"
   tr
-    th CinemaContent
+    th Cinema Content
   - @cinemas.each do |cinema|
     tr
       td
         = cinema
+
+br
+
+/ table border="1"
+/   tr
+/     th Film Content
+/   - @films.each do |film|
+/     tr
+/       td
+/         = film
+
+table border="1"
+  tr
+    th Film Content
+  tr
+    td
+      = @films
