@@ -1,27 +1,26 @@
-h1 Maizuoapis#index
-p Find me in app/views/maizuoapis/index.html.slim
+.container
+  .row
+    .col-xs-12.col-sm-12.col-lg-12
+      h1 来自卖座网的影院信息［测试］
+      br
+      table.table.table-striped.table-hover
+        thead
+          tr
+            th 电影院
+            th 城市
+            th 地址 
+            th 经度
+            th 纬度 
 
-table border="1"
-  tr
-    th Cinema Content
-  - @cinemas.each do |cinema|
-    tr
-      td
-        = cinema
+        tbody
+          - @cinemas.each do |cinema|
+            tr
+              / td = link_to admin_employee_applicant_path(applicant) do
+              /   = applicant.employee_snum
+              / 用于将来做编号的链接
 
-br
-
-/ table border="1"
-/   tr
-/     th Film Content
-/   - @films.each do |film|
-/     tr
-/       td
-/         = film
-
-table border="1"
-  tr
-    th Film Content
-  tr
-    td
-      = @films
+              td = cinema['cinemaName']
+              td = cinema['cityName']
+              td = cinema['address']
+              td = cinema['longitude']
+              td = cinema['latitude']

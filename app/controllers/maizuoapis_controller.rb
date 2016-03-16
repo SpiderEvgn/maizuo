@@ -1,6 +1,7 @@
 class MaizuoapisController < ApplicationController
   def index
-  	@cinemas = Mzapi.getcinemas
-  	@films = Mzapi.getfilms
+  	@cinemas = Mzapi.getCinemas
+  	@films = Mzapi.getFilms
+  	@cinematickets = Mzapi.getcinemaTickets
   end
 end
