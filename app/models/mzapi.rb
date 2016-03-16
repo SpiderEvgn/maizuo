@@ -2,10 +2,12 @@ class Mzapi < ActiveRecord::Base
   include HTTParty
 
   base_uri "http://open.maizuo.com"
-  # base_uri "http://115.29.236.48"
-  # default_params 
-  format :json
+  # 测试地址需要改变地址 /etc/hosts:  115.29.236.48  open.maizuo.com
 
+  # default_params  暂且没有默认参数，注释掉以备将来之用
+  format :json
+  
+  # debug_output 用来在 console 输出 api 调用过程
   debug_output $stdout
 
   def self.getCinemas
@@ -17,8 +19,8 @@ class Mzapi < ActiveRecord::Base
                                                        timestamp: "#{timestamp}", 
                                                        sign: "#{sign_value}",
                                                        cityId: "11"})
-    response1 = response['data']['cinemas']
-    # response2 = response.to_hash[:data][:cityList]
+    responseCinema = response['data']['cinemas']
+
   end
 
   def self.getFilms
@@ -32,10 +34,7 @@ class Mzapi < ActiveRecord::Base
                                           start: "0", 
                                           count: "10", 
                                           isShow: "1", 
-                                          cityId: "0"}).inspect
-
-  # get("/rest/ticket3.0/films").parsed_response
-  # parsed_response={"result"=>"101", "msg"=>"account illegal"}
+                                          cityId: "0"})
   end
 
   def self.getcinemaTickets
@@ -47,5 +46,6 @@ class Mzapi < ActiveRecord::Base
                                                   timestamp: timestamp,
                                                   cinemaId: "152",
                                                   ticketId: "1556"}).inspect
+    # 在 api 联通测试的时候用 inspect 来看的
   end
 end
