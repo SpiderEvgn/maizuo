@@ -34,6 +34,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'httparty'
 gem 'slim-rails'
 gem 'twitter-bootstrap-rails', '~> 3.2.0'
+gem 'font-awesome-rails'
 gem 'will_paginate-bootstrap'
 
 # Use Simple Form

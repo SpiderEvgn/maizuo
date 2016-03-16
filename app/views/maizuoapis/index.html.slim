@@ -9,8 +9,7 @@
             th 电影院
             th 城市
             th 地址 
-            th 经度
-            th 纬度 
+            th GPS 位置
 
         tbody
           - @cinemas.each do |cinema|
@@ -22,5 +21,4 @@
               td = cinema['cinemaName']
               td = cinema['cityName']
               td = cinema['address']
-              td = cinema['longitude']
-              td = cinema['latitude']
+              td = gps(cinema['longitude'],cinema['latitude'])
