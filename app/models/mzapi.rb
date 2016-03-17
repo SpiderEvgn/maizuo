@@ -10,19 +10,6 @@ class Mzapi < ActiveRecord::Base
   # debug_output 用来在 console 输出 api 调用过程
   debug_output $stdout
 
-  def self.getCinemas
-    # 拉取城市和影院列表
-    time = Time.new
-    timestamp = time.strftime("%Y%m%d%H%M%S")
-    sign_value = Digest::MD5.hexdigest("client_id=52642103681&timestamp=#{timestamp}&key=xkGEr244(((<HAee4346fg")
-    response = get("/rest/ticket3.0/cinemas", query: { client_id: "52642103681", 
-                                                       timestamp: "#{timestamp}", 
-                                                       sign: "#{sign_value}",
-                                                       cityId: "11"})
-    responseCinema = response['data']['cinemas']
-
-  end
-
   def self.getFilms
     # 拉取电影列表
     time = Time.new
@@ -37,15 +24,15 @@ class Mzapi < ActiveRecord::Base
                                           cityId: "0"})
   end
 
-  def self.getcinemaTickets
-    time = Time.new
-    timestamp = time.strftime("%Y%m%d%H%M%S")
-    sign_value = Digest::MD5.hexdigest("client_id=52642103681&timestamp=#{timestamp}&key=xkGEr244(((<HAee4346fg")
-    get("/rest/ticket3.0/cinemaTickets", query: { client_id: "52642103681", 
-                                                  sign: "#{sign_value}",
-                                                  timestamp: timestamp,
-                                                  cinemaId: "152",
-                                                  ticketId: "1556"}).inspect
-    # 在 api 联通测试的时候用 inspect 来看的
-  end
+  # def self.getcinemaTickets
+  #   time = Time.new
+  #   timestamp = time.strftime("%Y%m%d%H%M%S")
+  #   sign_value = Digest::MD5.hexdigest("client_id=52642103681&timestamp=#{timestamp}&key=xkGEr244(((<HAee4346fg")
+  #   get("/rest/ticket3.0/cinemaTickets", query: { client_id: "52642103681", 
+  #                                                 sign: "#{sign_value}",
+  #                                                 timestamp: timestamp,
+  #                                                 cinemaId: "152",
+  #                                                 ticketId: "1556"}).inspect
+  #   # 在 api 联通测试的时候用 inspect 来看的
+  # end
 end

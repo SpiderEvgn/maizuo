@@ -1,0 +1,32 @@
+.container-fluid
+  .row
+    .col-lg-12
+      h1 来自卖座网的影院信息［测试］
+      br
+      / p = button_to "MaiZuo", action: 'getCinemaInfo'
+      table.table.table-striped.table-hover
+        thead
+          tr
+            th Logo
+            th 电影院
+            th 城市
+            th 地址 
+            th 电话
+            th 公交
+            th GPS 位置
+
+        tbody
+          - @cinemas.each do |cinema|
+            tr
+              / td = link_to admin_employee_applicant_path(applicant) do
+              /   = applicant.employee_snum
+              / 用于将来做编号的链接
+              td = image_tag(cinema.logo, height: '100', width: '100')
+              td = cinema.cinemaName
+              td = cinema.cityName
+              td = cinema.address
+              td = cinema.phone
+              td = cinema.busPath
+              td = gps(cinema.longitude,cinema.latitude)
+
+      = will_paginate @cinemas, renderer: BootstrapPagination::Rails
