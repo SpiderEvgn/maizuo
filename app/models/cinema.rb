@@ -1,9 +1,9 @@
 class Cinema < ActiveRecord::Base
   include HTTParty
 
-  base_uri "http://open.maizuo.com"
   # 测试地址需要改变地址 /etc/hosts:  115.29.236.48  open.maizuo.com
-
+  base_uri "http://open.maizuo.com"
+  
   # default_params  暂且没有默认参数，注释掉以备将来之用
   format :json
   
