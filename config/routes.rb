@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   resources :cinemas
   resources :films
+  resources :cinema_tickets
+  resources :foretells
+  resources :real_time_seats
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -5,7 +5,7 @@ class FilmsController < ApplicationController
 
   def index
     @films = Film.all.paginate(:page => params[:page], :per_page => 5)
-    # @films = Film.getFilms
+    # @films = Film.getFilms 一开始用来查看数据结构，输出完整的返回值
   end
 
   private 
@@ -13,8 +13,6 @@ class FilmsController < ApplicationController
       @films = Film.getFilms
       @films.each do |film|
         f = Film.new
-        f.totalMovieCount = film['totalMovieCount']
-        f.movieCount = film['movieCount']
         f.filmId = film['id']
         f.name = film['name']
         f.director = film['director']
@@ -29,7 +27,7 @@ class FilmsController < ApplicationController
         f.info = film['info']
         f.picAddr = film['picAddr']
         f.dimensional = film['dimensional']
-        f.shortinfo = film['shortinfo']
+        f.shortInfo = film['shortInfo']
         f.videoUrl = film['videoUrl']
         f.grade = film['grade']
 

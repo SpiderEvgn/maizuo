@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160402014831) do
+ActiveRecord::Schema.define(version: 20160408134030) do
+
+  create_table "cinema_tickets", force: :cascade do |t|
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "cinemaId",           limit: 255
+    t.string   "ticketId",           limit: 255
+    t.string   "ticketType",         limit: 255
+    t.string   "ticketName",         limit: 255
+    t.string   "markerPrice",        limit: 255
+    t.string   "price",              limit: 255
+    t.string   "desc",               limit: 255
+    t.string   "enableDay",          limit: 255
+    t.string   "invalidationDate",   limit: 255
+    t.string   "effectiveBeginTime", limit: 255
+  end
 
   create_table "cinemas", force: :cascade do |t|
     t.datetime "created_at",                 null: false
@@ -38,32 +53,66 @@ ActiveRecord::Schema.define(version: 20160402014831) do
   end
 
   create_table "films", force: :cascade do |t|
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-    t.string   "totalMovieCount", limit: 255
-    t.string   "movieCount",      limit: 255
-    t.string   "filmId",          limit: 255
-    t.string   "name",            limit: 255
-    t.string   "director",        limit: 255
-    t.string   "actors",          limit: 255
-    t.string   "filmType",        limit: 255
-    t.string   "area",            limit: 255
-    t.string   "length",          limit: 255
-    t.string   "releaseDate",     limit: 255
-    t.string   "isShow",          limit: 255
-    t.string   "language",        limit: 255
-    t.string   "company",         limit: 255
-    t.text     "info",            limit: 65535
-    t.string   "picAddr",         limit: 255
-    t.string   "dimensional",     limit: 255
-    t.string   "shortinfo",       limit: 255
-    t.string   "videoUrl",        limit: 255
-    t.string   "grade",           limit: 255
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.string   "filmId",      limit: 255
+    t.string   "name",        limit: 255
+    t.string   "director",    limit: 255
+    t.string   "actors",      limit: 255
+    t.string   "filmType",    limit: 255
+    t.string   "area",        limit: 255
+    t.string   "length",      limit: 255
+    t.string   "releaseDate", limit: 255
+    t.string   "isShow",      limit: 255
+    t.string   "language",    limit: 255
+    t.string   "company",     limit: 255
+    t.text     "info",        limit: 65535
+    t.string   "picAddr",     limit: 255
+    t.string   "dimensional", limit: 255
+    t.string   "shortInfo",   limit: 255
+    t.string   "videoUrl",    limit: 255
+    t.string   "grade",       limit: 255
+  end
+
+  create_table "foretells", force: :cascade do |t|
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.string   "cinemaId",       limit: 255
+    t.string   "showDate",       limit: 255
+    t.string   "showTime",       limit: 255
+    t.string   "hallId",         limit: 255
+    t.string   "hallName",       limit: 255
+    t.string   "foretellId",     limit: 255
+    t.string   "filmId",         limit: 255
+    t.string   "price",          limit: 255
+    t.string   "marketPrice",    limit: 255
+    t.string   "flag",           limit: 255
+    t.string   "language",       limit: 255
+    t.string   "duration",       limit: 255
+    t.string   "timeout",        limit: 255
+    t.string   "sectionId",      limit: 255
+    t.string   "dimensional",    limit: 255
+    t.string   "offerId",        limit: 255
+    t.string   "lockNeedMobile", limit: 255
   end
 
   create_table "mzapis", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "real_time_seats", force: :cascade do |t|
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "seatId",      limit: 255
+    t.string   "sectionId",   limit: 255
+    t.string   "rowId",       limit: 255
+    t.string   "rowNum",      limit: 255
+    t.string   "columnId",    limit: 255
+    t.string   "columnNum",   limit: 255
+    t.string   "damagedFlag", limit: 255
+    t.string   "loveIndex",   limit: 255
+    t.string   "isLock",      limit: 255
   end
 
 end

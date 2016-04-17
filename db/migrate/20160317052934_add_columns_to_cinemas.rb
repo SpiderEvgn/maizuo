@@ -4,7 +4,7 @@ class AddColumnsToCinemas < ActiveRecord::Migration
     add_column :cinemas, :cityName, :string
     add_column :cinemas, :cinemaId, :string
     add_column :cinemas, :cinemaName, :string
-    add_column :cinemas, :logo, :string        # 图片源
+    add_column :cinemas, :logo, :string
     add_column :cinemas, :address, :string
     add_column :cinemas, :region, :string
     add_column :cinemas, :phone, :string

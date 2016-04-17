@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class MaizuoapisControllerTest < ActionController::TestCase
+class CinemaTicketsControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
     assert_response :success

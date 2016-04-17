@@ -1,3 +1,0 @@
-module MaizuoapisHelper
-
-end
